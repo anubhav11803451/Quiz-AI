@@ -72,7 +72,8 @@ def quiz():
         'quiz.html',
         uploaded=UPLOAD_STATUS,
         questions=questions,
-        size=len(questions))
+        size=len(questions)
+    )
 
 
 @app.route('/result', methods=['POST', 'GET'])

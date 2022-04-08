@@ -31,7 +31,7 @@
           <img src="/static/images/Logo-Alt.svg" alt="" />
           <div class="sidebar-menu">
             <ul>
-              <li><a href="">Home</a></li>
+              <li><a href="/dashboard">Home</a></li>
               <li><a href="">Settings</a></li>
               <li><a href="" onclick="logout(event)">Logout</a></li>
             </ul>
@@ -41,55 +41,50 @@
       <div class="content">
         <h1>Welcome <span id="displayName"></span></h1>
         <h2>Please upload your text file here.</h2>
-        <img src="/static/images/Paper Plus.svg" alt="" />
-        <form
-          action="http://localhost:5000/quiz"
-          method="POST"
-          enctype="multipart/form-data"
-        >
-          <div id="file-js-example" class="file has-name is-fullwidth">
-            <label class="file-label">
+        <div style="margin: 15%">
+          <img src="/static/images/Paper Plus.svg" alt="" />
+          <form
+            action="http://localhost:5000/quiz"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div id="file-js-example" class="container">
+              <!-- <label class="file-label btn btn-secondary"> -->
               <input
-                class="file-input"
+                class="btn btn-primary file-name"
                 type="file"
                 name="file"
-                accept=".txt, application/pdf"
+                accept=".txt"
               />
-              <span class="file-cta">
-                <span class="file-icon">
-                  <i class="fas fa-upload"></i>
-                </span>
-                <span class="file-label"> Choose a file… </span>
-              </span>
-              <span class="file-name"> No file uploaded </span>
-            </label>
-          </div>
-          <script>
-            const fileInput = document.querySelector(
-              "#file-js-example input[type=file]"
-            );
-            fileInput.onchange = () => {
-              if (fileInput.files.length > 0) {
-                const fileName = document.querySelector(
-                  "#file-js-example .file-name"
-                );
-                fileName.textContent = fileInput.files[0].name;
-              }
-            };
-          </script>
-          <button
-            class="button has-text-centered is-large is-fullwidth is-dark"
-          >
-            <span
-              class="submit has-text-centered"
-              type="submit"
-              name="upload file"
-              >Submit</span
-            >
-            <span class="loading"><i class="fa fa-refresh"></i></span>
-            <span class="check"><i class="fa fa-check"></i></span>
-          </button>
-        </form>
+              <!-- <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label"> Choose a file… </span>
+                </span> -->
+              <!-- <span class="btn btn-secondary file-name">
+                  No file uploaded
+                </span> -->
+              <!-- </label> -->
+            </div>
+            <script>
+              const fileInput = document.querySelector(
+                "#file-js-example input[type=file]"
+              );
+              fileInput.onchange = () => {
+                if (fileInput.files.length > 0) {
+                  const fileName = document.querySelector(
+                    "#file-js-example .file-name"
+                  );
+                  fileName.textContent = fileInput.files[0].name;
+                }
+              };
+            </script>
+            <button class="btn btn-primary" type="submit" name="upload file">
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
     </div>
     <script type="text/javascript" src="/static/javascript/app.js"></script>
