@@ -48,8 +48,6 @@ function signup(event) {
             });
             const uid = result.user.uid;
             addUser({ fullname, email, password, uid });
-            alert('Signed up');
-            window.location.replace('/dashboard');
 
         }).catch(function (error) {
             alert(error.message);
@@ -72,6 +70,8 @@ function addUser({ fullname, email, password, uid }) {
         .then(function (docRef) {
             console.log('currentUser', currentUser);
             console.log('Document written: ');
+            alert('Signed up');
+            window.location.replace('/dashboard');
         })
         .catch(function (error) {
             console.error('Error adding document: ', error);
